@@ -1,0 +1,138 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+body{
+  min-height: 100vh;
+  background: url(./bg.jpg) no-repeat center center/cover ;
+  font-family: monospace;
+}
+
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background: #00000038;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+
+}
+.nabar_container{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1600px;
+  width: 100%;
+  padding: 0 2rem;
+  position: relative;
+}
+.navbar_logo{
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+
+.nabar_container .navbar_manu{
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  color: white;
+ 
+}
+.nabar_container .navbar_manu li a{
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 3px 20px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  transition: all 0.7s ease;
+  white-space: nowrap;
+}
+.nabar_container .navbar_manu li a:hover{
+  color: #162530;
+  background: skyblue;
+  border: 2px solid white;
+}
+
+.navbar_toggle{
+  display: none;
+  background: transparent;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  
+} 
+/* Responsiv */
+@media screen and (max-width:576px) {
+  .navbar{
+    backdrop-filter: none;
+
+  }
+  .nabar_container .navbar_manu{
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.7rem !important;
+    position: absolute;
+    height: 96vh;
+    width: 210px; 
+    top: 0;
+    right: 0;
+    padding: 5rem 1.5rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0,0.5);
+    backdrop-filter: blur(5px);
+    
+  }
+.nabar_container .navbar_manu.active{
+ display: flex;
+
+}
+
+.nabar_container{
+  position: relative; /* FIX */
+}
+
+  .navbar_toggle{
+    display: block;
+    z-index: 999;
+ 
+  }
+  .nabar_container .navbar_manu li a{
+    border: 1.5px solid #3e3d3d9d;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .navbar_toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg)
+  }
+  .navbar_toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar_toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg)
+  }
+  
+}
